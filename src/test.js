@@ -1,23 +1,23 @@
 const format = require('prettier-eslint');
+const path = require('path');
+const fs = require('fs');
 const eslintOptions = require('../.eslintrc.json');
+const prettierOptions = require('../.prettierrc.json');
 
-const text = `const foo = {
-  a: 'a',
-  b: 'b'
-};
+const filePath = path.resolve('./src/test2.js');
 
-const { a, b } = foo;`;
+const text = fs.readFileSync(filePath, 'utf8');
 
 const options = {
-  // filePath: '/home/vladi/repo/contributions/vs-code-prettier-eslint/src/test2.js',
   text,
   eslintConfgi: eslintOptions,
+  prettierConfig: prettierOptions,
 };
 
 const options2 = {
-  filePath: '/home/vladi/repo/contributions/vs-code-prettier-eslint/src/test2.js',
-  // text,
+  filePath,
   eslintConfgi: eslintOptions,
+  prettierConfig: prettierOptions,
 };
 
 const formattedCode = format(options);

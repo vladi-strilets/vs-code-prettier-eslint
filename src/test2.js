@@ -1,6 +1,6 @@
 const foo = {
-  a: 'a',
-  b: 'b',
-};
+  a: "a",
+  b: 'b'
+}
 
-const { a, b } = foo;
+const {a,b} = foo
